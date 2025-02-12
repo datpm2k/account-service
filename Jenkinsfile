@@ -1,10 +1,11 @@
 pipeline {
-	stages {
-		stage('build') {
-			steps {
-				echo 'Start the build stage'
-				echo 'Build stage completed successfully'
-			}
-		}
-	}
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Starting the build Stage'
+                echo 'Build Stage completed successfully'
+            }
+        }
+    }
 }

@@ -29,12 +29,14 @@ public class AccountController {
                 Account.builder()
                         .accountNo("86868686")
                         .availableBalance(1000000)
+                        .actualBalance(1000000)
                         .build()
         );
         accounts.add(
                 Account.builder()
                         .accountNo("8888888")
                         .availableBalance(2500000)
+                        .actualBalance(2500000)
                         .build()
         );
     }

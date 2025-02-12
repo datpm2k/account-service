@@ -8,4 +8,5 @@ import lombok.Data;
 public class Account {
     private String accountNo;
     private long availableBalance;
+    private long actualBalance;
 }

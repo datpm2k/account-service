@@ -18,6 +18,7 @@ pipeline {
         sh 'docker build . -t account-service'
         withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
             sh 'docker login -u datpm -p ${dockerpwd}'
+            sh 'docker images'
             sh 'docker push datpm/account-service'
         }
       }

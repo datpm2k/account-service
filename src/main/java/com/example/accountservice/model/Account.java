@@ -10,4 +10,5 @@ public class Account {
     private String accountName;
     private long availableBalance;
     private long actualBalance;
+    private String accountStatus;
 }

@@ -31,6 +31,7 @@ public class AccountController {
                         .accountName("PHUNG MINH DAT")
                         .availableBalance(1000000)
                         .actualBalance(1000000)
+                        .accountStatus("A")
                         .build()
         );
         accounts.add(
@@ -39,6 +40,7 @@ public class AccountController {
                         .accountName("PHUNG MINH DAT")
                         .availableBalance(2500000)
                         .actualBalance(2500000)
+                        .accountStatus("C")
                         .build()
         );
     }

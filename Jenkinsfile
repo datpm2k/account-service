@@ -22,11 +22,10 @@ pipeline {
         }
       }
     }
-    stage('Deploy') {
-        steps {
-            sh 'docker pull datpm/account-service:latest'
-            sh 'docker run -p 8888:8080 account-service:latest'
+    stage('Push Registry') {
+          steps {
+            echo 'Hello World!'
+          }
         }
-    }
   }
 }

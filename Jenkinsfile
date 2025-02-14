@@ -22,10 +22,5 @@ pipeline {
         }
       }
     }
-    stage('Push Registry') {
-          steps {
-            echo 'Hello World!'
-          }
-        }
   }
 }

@@ -15,6 +15,7 @@ pipeline {
     stage('Push Registry') {
       steps {
         sh './gradlew bootJar'
+        sh 'docker build . -t account-service'
       }
     }
   }

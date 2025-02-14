@@ -12,15 +12,5 @@ pipeline {
         sh './gradlew test'
       }
     }
-    stage('Push Registry') {
-      steps {
-        sh './gradlew bootJar'
-        sh 'docker build . -t datpm/account-service:latest'
-        withCredentials([string(credentialsId: 'dockerPwd', variable: 'dockerPwd')]) {
-            sh 'docker login -u datpm -p ${dockerPwd}'
-            sh 'docker push datpm/account-service:latest'
-        }
-      }
-    }
   }
 }

@@ -1,13 +1,13 @@
 pipeline {
   agent any
   tools {
-    maven "maven_3_9_9"
+      gradle 'gradle_8_12_1'
   }
   stages {
     stage('Build') {
       steps {
         checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-user', url: 'https://github.com/datpm2k/account-service']])
-        sh "mvn clean package"
+        sh 'gradle clean build'
       }
     }
     stage('Test') {

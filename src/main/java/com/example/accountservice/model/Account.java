@@ -7,6 +7,7 @@ import lombok.Data;
 @Builder
 public class Account {
     private String accountNo;
+    private String accountName;
     private long availableBalance;
     private long actualBalance;
 }

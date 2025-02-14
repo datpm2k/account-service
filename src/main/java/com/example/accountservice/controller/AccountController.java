@@ -28,6 +28,7 @@ public class AccountController {
         accounts.add(
                 Account.builder()
                         .accountNo("86868686")
+                        .accountName("PHUNG MINH DAT")
                         .availableBalance(1000000)
                         .actualBalance(1000000)
                         .build()
@@ -35,6 +36,7 @@ public class AccountController {
         accounts.add(
                 Account.builder()
                         .accountNo("8888888")
+                        .accountName("PHUNG MINH DAT")
                         .availableBalance(2500000)
                         .actualBalance(2500000)
                         .build()

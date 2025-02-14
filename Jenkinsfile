@@ -19,6 +19,7 @@ pipeline {
         withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
             sh 'docker login -u datpm -p ${dockerpwd}'
             sh 'docker images'
+            sh 'echo hehe'
             sh 'docker push datpm/account-service'
         }
       }

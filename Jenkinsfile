@@ -17,7 +17,7 @@ pipeline {
         sh './gradlew bootJar'
         sh 'docker build . -t account-service'
         withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
-            sh 'docker login -p datpm -u ${dockerpwd}'
+            sh 'docker login -u datpm -p ${dockerpwd}'
             sh 'docker push datpm/account-service'
         }
       }

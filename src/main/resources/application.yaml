@@ -5,3 +5,6 @@ spring:
     name: account-service
   profiles:
     active: ${PROFILES:dev}
+
+app:
+  secret: ${SECRET:abcxyz}

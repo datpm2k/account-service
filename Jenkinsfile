@@ -12,5 +12,10 @@ pipeline {
         sh './gradlew test'
       }
     }
+    stage('Push Registry') {
+      steps {
+        sh './gradlew test'
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
 package com.example.accountservice.controller;
 
+import com.example.accountservice.config.AppProperties;
 import com.example.accountservice.model.Account;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,16 +20,17 @@ import java.util.List;
 @RequestMapping
 public class AccountController {
 
-    private static final List<Account> accounts;
-
     private final Environment environment;
+    private final AppProperties appProperties;
 
-    static {
-        accounts = new ArrayList<>();
+    @GetMapping(path = "/accounts")
+    public ResponseEntity<List<Account>> getAccounts() {
+        log.info("environments: {}", Arrays.toString(environment.getActiveProfiles()));
+        List<Account> accounts = new ArrayList<>();
         accounts.add(
                 Account.builder()
                         .accountNo("86868686")
-                        .accountName("PHUNG MINH DAT")
+                        .accountName(Arrays.toString(environment.getActiveProfiles()))
                         .availableBalance(1000000)
                         .actualBalance(1000000)
                         .accountStatus("A")
@@ -37,17 +39,12 @@ public class AccountController {
         accounts.add(
                 Account.builder()
                         .accountNo("8888888")
-                        .accountName("PHUNG MINH DAT")
+                        .accountName(appProperties.getSecret())
                         .availableBalance(2500000)
                         .actualBalance(2500000)
                         .accountStatus("C")
                         .build()
         );
-    }
-
-    @GetMapping(path = "/accounts")
-    public ResponseEntity<List<Account>> getAccounts() {
-        log.info("environments: {}", Arrays.toString(environment.getActiveProfiles()));
         return ResponseEntity.ok(accounts);
     }
 }

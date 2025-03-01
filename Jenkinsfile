@@ -1,9 +1,11 @@
 pipeline {
   agent any
   stages {
+    stage('Checkout') {
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/datpm2k/account-service']])
+    }
     stage('Build') {
       steps {
-        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/datpm2k/account-service']])
         sh './gradlew build'
       }
     }
@@ -12,10 +14,10 @@ pipeline {
         sh './gradlew test'
       }
     }
-    stage('Push Registry') {
-      steps {
-        sh './gradlew test'
-      }
+    stage('Deploy') {
+        steps {
+            sh 'Deploy completed successfully'
+        }
     }
   }
 }

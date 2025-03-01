@@ -1,41 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <springProperty scope="context" name="ENV" source="spring.profiles.active"/>
 
-    <!-- Scan for changes in the configuration file -->
-    <configurationScan />
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%yellow([%d{yyyy-MM-dd HH:mm:ss.SSS}]):%highlight([%-5level]):%green([${ENV}]):[%t]%cyan([%c{1}]):[%green(%line)]:[%boldMagenta(%X{httpMethod})]:%boldMagenta(%X{path}) - %m%n"/>
 
-    <!-- Define log levels -->
-    <property name="LOG_LEVEL" value="INFO" />
-
-    <!-- Define file paths for log files -->
-    <property name="LOG_FILE" value="logs/app.log" />
-    <property name="LOG_FILE_PATTERN" value="logs/app.%d{yyyy-MM-dd}.log" />
-
-    <!-- Console Appender -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                ${CONSOLE_LOG_PATTERN}
+            </Pattern>
+        </layout>
     </appender>
 
-    <!-- File Appender (rolling file) -->
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_FILE}</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- Daily rolling -->
-            <fileNamePattern>${LOG_FILE_PATTERN}</fileNamePattern>
-            <!-- Keep logs for 30 days -->
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <!-- Root Logger -->
-    <root level="${LOG_LEVEL}">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
     </root>
 
 </configuration>

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: account-service-dev
+spec:
+  containers:
+    - name: account-service-dev
+      image: datpm/account-service:latest
+      imagePullPolicy: IfNotPresent
+      ports:
+        - name: account-service-dev
+          containerPort: 8080
+          protocol: TCP
+  restartPolicy: Always
+  

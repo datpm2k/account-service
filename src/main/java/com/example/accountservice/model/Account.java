@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 @Builder
 public class Account {
-    private String accountNo;
-    private String accountName;
-    private long availableBalance;
-    private long actualBalance;
-    private String accountStatus;
+  private String accountNo;
+  private String accountName;
+  private long availableBalance;
+  private long actualBalance;
+  private String accountStatus;
 }

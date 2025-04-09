@@ -10,6 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ConfigInfo {
-    private String env;
-    private String secret;
+  private String env;
+  private String secret;
 }

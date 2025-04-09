@@ -6,7 +6,8 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 public class BaseResponse<T> {
-    private String code;
-    private String message;
-    private T data;
+  private String code;
+  private String message;
+  private String timestamp;
+  private T data;
 }
